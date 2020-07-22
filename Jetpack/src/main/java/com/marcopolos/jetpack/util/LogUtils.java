@@ -3,8 +3,6 @@ package com.marcopolos.jetpack.util;
 import android.text.TextUtils;
 import android.util.Log;
 
-import androidx.databinding.library.BuildConfig;
-
 
 /**
  * 作者　: hegaojian
@@ -14,22 +12,22 @@ import androidx.databinding.library.BuildConfig;
 public class LogUtils {
     private static final String DEFAULT_TAG = "Jetpack";
 
-    private static boolean isLog = BuildConfig.DEBUG;
+    public static boolean showLog = false;
 
     private LogUtils() {
         throw new IllegalStateException("you can't instantiate me!");
     }
 
-    public static boolean isLog() {
-        return isLog;
+    public static boolean showLog() {
+        return showLog;
     }
 
     public static void setLog(boolean isLog) {
-        LogUtils.isLog = isLog;
+        LogUtils.showLog = isLog;
     }
 
     public static void debugInfo(String tag, String msg) {
-        if (!isLog || TextUtils.isEmpty(msg)) {
+        if (!showLog || TextUtils.isEmpty(msg)) {
             return;
         }
         Log.d(tag, msg);
@@ -41,7 +39,7 @@ public class LogUtils {
     }
 
     public static void warnInfo(String tag, String msg) {
-        if (!isLog || TextUtils.isEmpty(msg)) {
+        if (!showLog || TextUtils.isEmpty(msg)) {
             return;
         }
         Log.w(tag, msg);
@@ -59,7 +57,7 @@ public class LogUtils {
      * @param msg 日志内容
      */
     public static void debugLongInfo(String tag, String msg) {
-        if (!isLog || TextUtils.isEmpty(msg)) {
+        if (!showLog || TextUtils.isEmpty(msg)) {
             return;
         }
         msg = msg.trim();
