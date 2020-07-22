@@ -1,11 +1,10 @@
 package com.marcopolos.jetpack.ext.util
 
 import android.util.Log
-import androidx.databinding.library.BuildConfig
 
 const val TAG = "Jetpack"
 
-var showLog = BuildConfig.DEBUG
+var showLog = false
 
 private enum class LEVEL {
     V, D, I, W, E
